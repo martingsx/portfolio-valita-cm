@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Fraunces', serif;
+  --font-sans: 'Lora', serif; /* Using a soft serif for body too for cozy feel */
+  
+  --color-primary: #d97706; /* Burnt Orange */
+  --color-primary-hover: #b45309;
+  --color-secondary: #78350f; /* Deep Brown */
+  --color-accent: #854d0e; /* Ochre */
+  --color-sage: #606c38; /* Forest Green hint */
+  --color-beige: #fdfaf6; /* Warm White */
+  --color-cocoa: #1c1917; /* Dark Warm Brown */
+  --color-terracotta: #9a3412;
+}
+
+@layer base {
+  body {
+    @apply bg-beige text-cocoa antialiased font-sans overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif font-semibold;
+  }
+  
+  html {
+    @apply scroll-auto overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .cozy-card {
+    @apply bg-white/40 backdrop-blur-md border border-cocoa/5 shadow-xl shadow-cocoa/5 rounded-[3rem];
+  }
+  
+  .btn-warm {
+    @apply bg-terracotta text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-secondary hover:shadow-lg hover:-translate-y-1 inline-flex items-center gap-2;
+  }
+}
+
+/* Subtle texture/grain effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.organic-blob {
+  @apply absolute -z-10 blur-[100px] opacity-20 rounded-full;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
